@@ -38,11 +38,6 @@ function _create_POSIX_group {
     fi
 }
 
-function _remove_ziti_edge_tunnel {
-    sudo rm /usr/local/bin/ziti-edge-tunnel
-    sudo rm -rf /tmp/.ziti
-}
-
 function TunnelInstall {
     _install_ziti_edge_tunnel
     _create_POSIX_group
@@ -64,4 +59,7 @@ function Add_identities {
     sudo ziti-edge-tunnel add --jwt "$(< $1)" --identity $2
 }
 
-
+function Remove_ziti_edge_tunnel {
+    sudo rm /usr/local/bin/ziti-edge-tunnel
+    sudo rm -rf /tmp/.ziti
+}
